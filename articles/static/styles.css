@@ -1,0 +1,19 @@
+.bg-blue{
+	background-color: rgb(34, 48, 63);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 10vw;
+    object-fit: contain;
+}
+
+.img-detail{
+	width: 20vw;
+    height: 100%;
+    object-fit: contain;
+}
+
+.mt-minus{
+	margin-top: -7px
+}

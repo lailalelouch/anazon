@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Document
+{% endblock title %}
+
+{% block content %}
+	<form class="col-6 mx-auto" action="{% url 'create-book' %}" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{form|crispy}}
+		<button>Submit</button>
+	</form>
+{% endblock content %}

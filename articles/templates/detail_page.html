@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+Document
+{% endblock title %}
+
+{% block content %}
+	<div class="row">
+	 <img class="img-detail col-lg-3 col-xs-12 mt-5 ml-5" src="{{book.image.url}}" alt="Card image cap">
+	 <div class="col-lg-8 col-xs-12 mt-5">
+	 	<h2>{{book.title}}</h2>
+		<p class="small text-dark mt-minus">by <span class="text-primary">{{book.author}}</span>(Author)</p>
+		<p>{{book.description}}</p>
+		<p>Price: {{book.price}} K.D.</p>
+		<p>Pages: {{book.pages}}</p>
+		<p>Publication Date: {{book.publication_date}}</p>
+		<p>sold by: {{book.sold_by}}</p>
+		{% if request.user == book.sold_by %}
+			<a class="btn btn-outline-danger float-right" href="{% url 'delete-book' book.id %}">delete</a>
+			<a class="btn btn-outline-dark float-right mx-1" href="{% url 'update-book' book.id %}">update</a>
+		{% endif %}
+
+	 </div>
+	</div>
+	
+{% endblock content %}

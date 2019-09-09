@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Registration
+{% endblock title %}
+
+
+{% block content %}
+	<form class="col-6 mx-auto" action="{% url 'register_name' %}" method="POST" >
+		{% csrf_token %}
+		{{form|crispy}}
+		<button>Submit</button>
+	</form>
+{% endblock content %}

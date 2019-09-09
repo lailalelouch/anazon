@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+My Books
+{% endblock title %}
+
+
+{% block content %}
+{% for book in request.user.books.all %}
+		<div class="card col-lg-2 col-md-3 col-xs-4 border-light" style="width: 18rem;">
+		
+		{% if book.image  %}
+		  <img class="card-img-top"  src="{{book.image.url}}" alt="Card image cap">
+		{% else %}
+		  <img class="card-img-top"  src="{% static 'A Fire Sparkling.jpg' %}" alt="Card image cap">
+		{% endif %}
+
+
+		  <div class="card-body">
+		    <h5 class="card-title"><a href="{% url 'detail-page'  book.id %}">{{book.title}}</a></h5>
+		    <p class="card-text">{{book.author}}</p>
+		    <p class="card-text text-danger">{{book.price}} K.D.</p>
+		  </div>
+		</div>
+	{% endfor %}
+</div>
+{% endblock content %}
