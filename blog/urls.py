@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('a/', views.home_page),
     path('about-us/', views.about),
-    path('list/', views.list_page, name="list-page"),
+    path('', views.list_page, name="list-page"),
     path('details/<int:book_id>/', views.detail_page, name="detail-page"),
     path('create/', views.create_book, name="create-book"),
     path('update/<int:book_id>/', views.update_book, name="update-book"),
